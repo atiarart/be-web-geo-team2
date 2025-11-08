@@ -1,18 +1,23 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import dataPendaftarRoutes from "./routes/DataPendaftarRoute.js";
+import jadwalRoutes from "./routes/JadwalRoutes.js";
 
-import DataPendaftar from "./routes/DataPendaftarRoute.js";
 dotenv.config();
 
 const app = express();
 
-// app.use(cors());
-app.use(cors({ origin: 'http://localhost:5173' }));
+// middleware
+app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
-app.use(DataPendaftar)
 
-app.listen(process.env.APP_PORT, () => {
-    console.log('Server up and is running ...');
+// routes
+app.use("/api/pendaftar", dataPendaftarRoutes);  // untuk admin
+app.use("/api/jadwal", jadwalRoutes);            // untuk user
+
+// jalankan server
+const PORT = process.env.APP_PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server berjalan di port ${PORT}`);
 });
-
