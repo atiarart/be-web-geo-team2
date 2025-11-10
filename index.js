@@ -22,7 +22,6 @@ const app = express();
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
-
 app.use('/api', DataPendaftar)
 app.use('/api/auth', AuthRoute)
 app.use('/api/admin', AdminRoute)

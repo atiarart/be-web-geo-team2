@@ -20,6 +20,7 @@ model Admin {
   password String
   role String @default("admin")
   akses Boolean @default(false)
+
 model Jadwal {
   id      Int      @id  @default(autoincrement())
   bidang  String  
@@ -67,4 +68,3 @@ model data_pelatihan {
   kategori      kategori_pelatihan @relation(fields: [id_kategori], references: [id_kategori])
 }
 }
-
