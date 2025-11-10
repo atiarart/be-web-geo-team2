@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "../src/generated/index.js";
 
 const prisma = new PrismaClient();
 
@@ -106,4 +106,3 @@ export const deleteDataPendaftar = async (req, res) => {
         res.status(404).json({msg: "Data tidak ditemukan!"})
     }
 };
-

@@ -6,14 +6,14 @@ import jadwalRoutes from "./routes/JadwalRoutes.js";
 import KategoriPelatihanRoute from "./routes/KategoriPelatihanRoute.js";
 import DaftarPelatihanRoute from "./routes/DaftarPelatihanRoute.js";
 
-<<<<<<< HEAD
+// import pelatihanRoutes from "./routes/PelatihanRoutes.js"
+
+
 import DataPendaftar from "./routes/DataPendaftarRoute.js";
 import AuthRoute from "./routes/AuthRoute.js"
 
 import AdminRoute from "./routes/AdminRoute.js"
 
-=======
->>>>>>> 30d0d7686c6324d15948798d525b47ce72ca057e
 dotenv.config();
 
 const app = express();
@@ -21,7 +21,7 @@ const app = express();
 // middleware
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
-<<<<<<< HEAD
+
 
 app.use('/api', DataPendaftar)
 app.use('/api/auth', AuthRoute)
@@ -35,12 +35,11 @@ app.use((err, req, res, next) => {
     error: err.message || "Internal Server Error",
   });
 });
-=======
->>>>>>> 30d0d7686c6324d15948798d525b47ce72ca057e
 
 // routes
 app.use("/api/pendaftar", dataPendaftarRoutes);  // untuk admin
 app.use("/api/jadwal", jadwalRoutes);            // untuk user
+// app.use("/api/pelatihan", pelatihanRoutes);
 
 // jalankan server
 const PORT = process.env.APP_PORT || 5000;

@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  // output   = "../generated/prisma"
+  output   = "../src/generated" 
 }
 
 datasource db {
@@ -20,6 +20,14 @@ model Admin {
   password String
   role String @default("admin")
   akses Boolean @default(false)
+model Jadwal {
+  id      Int      @id  @default(autoincrement())
+  bidang  String  
+  nama    String
+  harga   Int
+  jmlHari Int
+  bulan   String?
+  tanggal String?
 }
 
 model DataPendaftar {
@@ -58,3 +66,5 @@ model data_pelatihan {
   id_kategori   Int
   kategori      kategori_pelatihan @relation(fields: [id_kategori], references: [id_kategori])
 }
+}
+
