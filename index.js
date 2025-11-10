@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import dataPendaftarRoutes from "./routes/DataPendaftarRoute.js";
 import jadwalRoutes from "./routes/JadwalRoutes.js";
+import KategoriPelatihanRoute from "./routes/KategoriPelatihanRoute.js";
+import DaftarPelatihanRoute from "./routes/DaftarPelatihanRoute.js";
 
 <<<<<<< HEAD
 import DataPendaftar from "./routes/DataPendaftarRoute.js";
@@ -24,6 +26,8 @@ app.use(express.json());
 app.use('/api', DataPendaftar)
 app.use('/api/auth', AuthRoute)
 app.use('/api/admin', AdminRoute)
+app.use("/kategori-pelatihan", KategoriPelatihanRoute);
+app.use("/daftar-pelatihan", DaftarPelatihanRoute);
 
 app.use((err, req, res, next) => {
   console.error(err);
