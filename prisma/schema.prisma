@@ -34,3 +34,27 @@ model DataPendaftar {
   emailPeserta String
   pelatihan String
 }
+
+model kategori_pelatihan {
+  id_kategori   Int @id @default(autoincrement())
+  nama_kategori String 
+  data          data_pelatihan[]  // <-- RELASI
+}
+
+model data_pelatihan {
+  id_pelatihan        Int @id @default(autoincrement())
+  nama_pelatihan      String?
+  tujuan              String
+  persyaratan         String
+  materi_pembelajaran String
+  instruktur          String
+  sertifikasi         String
+  metode_pembelajaran String
+  biaya               String
+  fasilitas           String
+  contact             String
+  nama_kategori       String
+
+  id_kategori   Int
+  kategori      kategori_pelatihan @relation(fields: [id_kategori], references: [id_kategori])
+}
